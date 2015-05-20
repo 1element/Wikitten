@@ -439,7 +439,7 @@ class Wiki
         $request    = parse_url($_SERVER['REQUEST_URI']);
         $page       = str_replace("###" . APP_DIR . "/", "", "###" . urldecode($request['path']));
         
-        $filepath   = LIBRARY . urldecode($request['path']);
+        $filepath   = LIBRARY . '/' . $page;
         $content    = "# " . htmlspecialchars($page, ENT_QUOTES, 'UTF-8');
 
         // if feature not enabled, go to 404
