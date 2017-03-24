@@ -175,7 +175,7 @@ class Wiki
      */
     protected function _pathIsSafe($path)
     {
-        if ($path && strpos($path, LIBRARY) === 0 && is_readable($path)) {
+        if ($path && strpos($path, LIBRARY) === 0) {
             return true;
         }
 
