@@ -1,6 +1,17 @@
-wikitten:
-  build: .
-  ports:
-    - 9000:9000
-  volumes:
-    - .:/var/www
+version: '2'
+services:
+  nginx-wikitten:
+    image: nginx:latest
+    container_name: nginx-wikitten
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/www
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+  php-wikitten:
+    image: php:7-fpm
+    container_name: php-wikitten
+    restart: always
+    volumes:
+      - .:/www
